@@ -1,16 +1,3 @@
-<?php
-	$connect = mysqli_connect('localhost','root','','DULIEU');
-	mysqli_set_charset($connect,"utf8");
-	session_start();
-?>
-
-	<?php
-		if(isset($_GET["act"])&&$_GET["act"]=="logout"){
-			unset($_SESSION["loged"]);
-			header("location:index.php");
-			setcookie("success", "Bạn đã đăng xuất!", time()+1, "/","", 0);
-		}
-	?>
 
 <!DOCTYPE html>
 <html class=" ">
@@ -169,80 +156,124 @@
             </div>
 
 
+        <!-- START TOPBAR -->
+          <!-- START CONTAINER -->
+          <div class="page-container row-fluid container-fluid">
+            <!-- SIDEBAR - START -->
+           
+               
+
+
             <!--  SIDEBAR - END -->
             <!-- START CONTENT -->
             <section id="main-content" class=" ">
-                <section class="wrapper main-wrapper row" style=''>
-                    <div class='col-xs-12'>
-                        <div class="page-title">
-                            <div class="pull-left">
-                                <h1 class="title">Danh Sách Sản Phẩm</h1>
-                            </div>
-                            <div class="pull-right hidden-xs">
-                               
-                            </div>
+            <section class="wrapper main-wrapper row" style=''>
+                <div class='col-xs-12'>
+                    <div class="page-title">
+                        <div class="pull-left">
+                            <h1 class="title">Add Sản Phẩm</h1>
+                        </div>
+                        <div class="pull-right hidden-xs">
+                            
                         </div>
                     </div>
-                    <div class="clearfix"></div>
-                    <div class="col-lg-12">
-                        <section class="box ">
-                            <header class="panel_header">
-                                <h2 class="title pull-left">All Sản Phẩm</h2>
-                                <div class="actions panel_actions pull-right">
-                                    <a class="box_toggle fa fa-chevron-down"></a>
-                                    <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
-                                    <a class="box_close fa fa-times"></a>
-                                </div>
-                            </header>
-                            <div class="content-body">
-                                <div class="row">
-                                    
-                                    <div class="col-xs-12">
-                                        <!-- ********************************************** -->
-                                        <table id="example" class="display table table-hover table-condensed">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>FullName</th>
-                                                    <th>Age</th>
-                                                    <th>Phone</th>
-                                                    <th>Address</th>
-                                                    <th>Class</th>
-                                                    <th>Mssv</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>phong</td>
-                                                    <td>20</td>
-                                                    <td>3513213</td>
-                                                    <td>Hue</td>
-                                                    <td>16T3</td>
-                                                    <td>102160133</td>
-                                                    <td>
-                                                        <a href="">Xoá</a> |
-                                                        <a href="">Sửa</a>
-                                                    </td>  
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <!-- ********************************************** -->
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-12">
+                    <section class="box ">
+                        <header class="panel_header">
+                            <h2 class="title pull-left">Thông Tin</h2>
+                            <div class="actions panel_actions pull-right">
+                                <a class="box_toggle fa fa-chevron-down"></a>
+                                <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
+                                <a class="box_close fa fa-times"></a>
+                            </div>
+                        </header>
+                        <div class="content-body">
+                            <div class="row">
+                            
+                                <form action ="" method="post" enctype="multipart/form-data">
+                                <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Ngân Hàng</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <select class="form-control" id="cate" name="cate">
+                                                    
+                                                        <option value="">Dông Á</option>
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Sinh Vien</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <select class="form-control" id="cate" name="cate">
+                                                    
+                                                        <option value="">Phong</option>
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Số tiền vay</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <input type="text" id="name" value="" class="form-control" name="name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Lãi Suất</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <input type="text" id="name" value="" class="form-control" name="name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Giá</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <input type="number" id="gia" value="0" min="0" class="form-control" name="gia">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                     <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Lãi Suất</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <input type="text" id="name" value="" class="form-control" name="name">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="text-left">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <button type="button" class="btn">Cancel</button>
+                                        </div>
+                                    </div>
+                                </form>
                                 </div>
                             </div>
-                        </section>
+                    </section>
                     </div>
-                </section>
             </section>
+        </section>
             <!-- END CONTENT -->
             <div class="chatapi-windows ">
-
             </div>
-
-        </div>
-        <!-- END CONTAINER -->
+         <!-- END CONTAINER -->
         <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
         <!-- CORE JS FRAMEWORK - START --> 
         <script src="js/jquery-1.11.2.min.js" type="text/javascript"></script> 

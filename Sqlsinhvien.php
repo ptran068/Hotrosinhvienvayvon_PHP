@@ -16,6 +16,7 @@ $sql = "CREATE TABLE vayvon (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
     tienchovay VARCHAR(50) NOT NULL,
     laisuat VARCHAR(30) NOT NULL,
+    tongtien INT(30) NOT NULL,
     adress VARCHAR(50) NOT NULL,
     reg_date TIMESTAMP,
     FOREIGN KEY idnoichovay(id)

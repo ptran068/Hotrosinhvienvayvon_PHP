@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html class=" ">
     <head>
@@ -9,11 +10,11 @@
         <meta content="" name="description" />
         <meta content="" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
+       
         <link href="plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen"/>
         <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-        <link href=fonts/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
         <link href="css/animate.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" type="text/css"/>
         <!-- CORE CSS FRAMEWORK - END -->
@@ -46,7 +47,7 @@
                     <ul class="info-menu right-links list-inline list-unstyled">
                         <li class="profile">
                             <a href="#" data-toggle="dropdown" class="toggle">
-                            <img src=""  alt="user-image" class="img-circle img-inline avatar">
+                            <img src="images/anh.jpg"  alt="user-image" class="img-circle img-inline avatar">
                             <span class="name"> <i class="fa fa-angle-down"></i></span>
                             </a>
                             <ul class="dropdown-menu profile animated fadeIn">
@@ -64,10 +65,7 @@
                                 </li>
                                
                                 <li class="last">
-                                    <a href="/admin/dang-xuat.html">
-                                    <i class="fa fa-lock"></i>
-                                    Logout
-                                    </a>
+                                     <?php if(isset($_SESSION["loged"])) echo "<a href='index.php?act=logout' class='btn btn-danger'>Đăng xuất</a>"; ?>
                                 </li>
                             </ul>
                         </li>
@@ -87,12 +85,12 @@
                     <div class="profile-info row">
                         <div class="profile-image col-xs-4">
                             <a href="ui-profile.html">
-                            <img alt=""  src="" class="img-responsive img-circle avatar">
+                            <img alt="images/anh.jpg"  src="images/anh.jpg" class="img-responsive img-circle avatar">
                             </a>
                         </div>
                         <div class="profile-details col-xs-8">
                             <h3>
-                                <a href="ui-profile.html" class="name">Shane Taylor</a>
+                                <a href="ui-profile.html" class="name">Đại Phong</a>
                                 <!-- Available statuses: online, idle, busy, away and offline -->
                                 <span class="profile-status online"></span>
                             </h3>
@@ -158,6 +156,14 @@
             </div>
 
 
+        <!-- START TOPBAR -->
+          <!-- START CONTAINER -->
+          <div class="page-container row-fluid container-fluid">
+            <!-- SIDEBAR - START -->
+           
+               
+
+
             <!--  SIDEBAR - END -->
             <!-- START CONTENT -->
             <section id="main-content" class=" ">
@@ -185,11 +191,12 @@
                         </header>
                         <div class="content-body">
                             <div class="row">
-                             
+                            
                                 <form action ="" method="post" enctype="multipart/form-data">
+                               
                                     <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
                                         <div class="form-group">
-                                            <label class="form-label" for="field-120334">Name</label>
+                                            <label class="form-label" for="field-120334">Tên sinh viên</label>
                                             <span class="desc"></span>
                                             <div class="controls">
                                                 <input type="text" id="name" value="" class="form-control" name="name">
@@ -198,41 +205,56 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
                                         <div class="form-group">
-                                            <label class="form-label" for="field-120334">Hình</label>
+                                            <label class="form-label" for="field-120334">Tuổi</label>
                                             <span class="desc"></span>
                                             <div class="controls">
-                                                <input type="file" id="hinh" value="" required="required" class="form-control" name="hinh">
+                                                <input type="text" id="name" value="" class="form-control" name="name">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
                                         <div class="form-group">
-                                            <label class="form-label" for="field-120334">Giá</label>
+                                            <label class="form-label" for="field-120334">Địa chỉ</label>
                                             <span class="desc"></span>
                                             <div class="controls">
-                                                <input type="number" id="gia" value="0" min="0" class="form-control" name="gia">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
-                                        <div class="form-group">
-                                            <label class="form-label" for="field-120334">Thể Loại</label>
-                                            <span class="desc"></span>
-                                            <div class="controls">
-                                                <select class="form-control" id="cate" name="cate">
-                                                 
-                                                </select>
+                                                <input type="text" id="name" value="" class="form-control" name="name">
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                   <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
                                         <div class="form-group">
-                                            <label class="form-label" for="field-120334">Chi Tiết Sản Phẩm</label>
+                                            <label class="form-label" for="field-120334">Lớp</label>
                                             <span class="desc"></span>
                                             <div class="controls">
-                                                <textarea name="des" id="des" class="form-control autogrow" cols="5" ></textarea>
+                                                <input type="text" id="name" value="" class="form-control" name="name">
+                                            </div>
+                                        </div>
+																		</div>
+																		<div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Phone</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <input type="text" id="name" value="" class="form-control" name="name">
+                                            </div>
+                                        </div>
+																		</div>
+																		<div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Mssv</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <input type="text" id="name" value="" class="form-control" name="name">
+                                            </div>
+                                        </div>
+																		</div>
+																		<div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Tiền đã vay</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <input type="text" id="name" value="" class="form-control" name="name">
                                             </div>
                                         </div>
                                     </div>
@@ -253,8 +275,7 @@
             <!-- END CONTENT -->
             <div class="chatapi-windows ">
             </div>
-        </div>
-        <!-- END CONTAINER -->
+         <!-- END CONTAINER -->
         <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
         <!-- CORE JS FRAMEWORK - START --> 
         <script src="js/jquery-1.11.2.min.js" type="text/javascript"></script> 
@@ -307,3 +328,7 @@
         </script>
     </body>
 </html>
+            <script src="plugins/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script>
+            <script src="plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js" type="text/javascript"></script>
+            <script src="plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js" type="text/javascript"></script>
+            <script src="plugins/datatables/extensions/Responsive/bootstrap/3/dataTables.bootstrap.js" type="text/javascript"></script>
