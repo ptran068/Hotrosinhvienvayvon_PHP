@@ -48,8 +48,8 @@
 
 			$count = mysqli_num_rows($rows);
 			if($count==1){
-				$_SESSION["loged"] = $user_name;
-				header("location: index.php");
+				$_SESSION["loged"] = true;
+				header("location: danhsach_view.php");
 				setcookie("success", "Đăng nhập thành công!", time()+1, "/","", 0);
 			}
 			else{

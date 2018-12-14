@@ -12,13 +12,17 @@ if (!$conn) {
 }
 
 // sql to create table
-$sql = "CREATE TABLE user (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-user_name VARCHAR(50) NOT NULL,
-password VARCHAR(50) NOT NULL,
-full_name VARCHAR(50) NOT NULL,
-reg_date TIMESTAMP
-)";
+$sql = "CREATE TABLE vayvon (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    tienchovay VARCHAR(50) NOT NULL,
+    laisuat VARCHAR(30) NOT NULL,
+    adress VARCHAR(50) NOT NULL,
+    reg_date TIMESTAMP,
+    FOREIGN KEY idnoichovay(id)
+   REFERENCES noichovay (id),
+   FOREIGN KEY idsinhvien(id)
+   REFERENCES sinhvien (id)
+    )";
 
 if (mysqli_query($conn, $sql)) {
     echo "Table MyGuests created successfully";

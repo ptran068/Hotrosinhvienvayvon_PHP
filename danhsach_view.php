@@ -1,3 +1,17 @@
+<?php
+	$connect = mysqli_connect('localhost','root','','DULIEU');
+	mysqli_set_charset($connect,"utf8");
+	session_start();
+?>
+
+	<?php
+		if(isset($_GET["act"])&&$_GET["act"]=="logout"){
+			unset($_SESSION["loged"]);
+			header("location:index.php");
+			setcookie("success", "Bạn đã đăng xuất!", time()+1, "/","", 0);
+		}
+	?>
+
 <!DOCTYPE html>
 <html class=" ">
     <head>
@@ -46,7 +60,7 @@
                     <ul class="info-menu right-links list-inline list-unstyled">
                         <li class="profile">
                             <a href="#" data-toggle="dropdown" class="toggle">
-                            <img src=""  alt="user-image" class="img-circle img-inline avatar">
+                            <img src="images/anh.jpg"  alt="user-image" class="img-circle img-inline avatar">
                             <span class="name"> <i class="fa fa-angle-down"></i></span>
                             </a>
                             <ul class="dropdown-menu profile animated fadeIn">
@@ -64,10 +78,7 @@
                                 </li>
                                
                                 <li class="last">
-                                    <a href="/admin/dang-xuat.html">
-                                    <i class="fa fa-lock"></i>
-                                    Logout
-                                    </a>
+                                     <?php if(isset($_SESSION["loged"])) echo "<a href='index.php?act=logout' class='btn btn-danger'>Đăng xuất</a>"; ?>
                                 </li>
                             </ul>
                         </li>
@@ -87,12 +98,12 @@
                     <div class="profile-info row">
                         <div class="profile-image col-xs-4">
                             <a href="ui-profile.html">
-                            <img alt=""  src="" class="img-responsive img-circle avatar">
+                            <img alt="images/anh.jpg"  src="images/anh.jpg" class="img-responsive img-circle avatar">
                             </a>
                         </div>
                         <div class="profile-details col-xs-8">
                             <h3>
-                                <a href="ui-profile.html" class="name">Shane Taylor</a>
+                                <a href="ui-profile.html" class="name">Đại Phong</a>
                                 <!-- Available statuses: online, idle, busy, away and offline -->
                                 <span class="profile-status online"></span>
                             </h3>
