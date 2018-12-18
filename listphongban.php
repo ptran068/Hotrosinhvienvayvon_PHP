@@ -1,22 +1,14 @@
 <?php require_once 'headerr.php'; ?>
-<?php
-    $value = $_GET['IDNV'];
 
-    
-    $sql = "DELETE FROM nhanvien WHERE IDNV='$value'";
-    $rs = mysqli_query($connect, $sql);
-    
-  
-    
-?>  
-    <!--  SIDEBAR - END -->
+
+            <!--  SIDEBAR - END -->
             <!-- START CONTENT -->
             <section id="main-content" class=" ">
                 <section class="wrapper main-wrapper row" style=''>
                     <div class='col-xs-12'>
                         <div class="page-title">
                             <div class="pull-left">
-                                <h1 class="title">Danh Sách Nhân Viên</h1>
+                                <h1 class="title">Danh Sách Phòng Ban</h1>
                             </div>
                             <div class="pull-right hidden-xs">
                                
@@ -27,7 +19,7 @@
                     <div class="col-lg-12">
                         <section class="box ">
                             <header class="panel_header">
-                                <h2 class="title pull-left">All Nhân Viên</h2>
+                                <h2 class="title pull-left">All Phòng ban</h2>
                                 <div class="actions panel_actions pull-right">
                                     <a class="box_toggle fa fa-chevron-down"></a>
                                     <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
@@ -42,34 +34,28 @@
                                         <table id="example" class="display table table-hover table-condensed">
                                             <thead>
                                                 <tr>
-                                                    <th>IDNV</th>
-                                                    <th>HoTen</th>
-                                                    <th>Địa chỉ</th>
-                                                    <th>IDPB</th>
-                                                    
-                                                    <th>Actions</th>
-                                                    
+                                                    <th>ID</th>
+                                                    <th>Name</th>
+                                                    <th>Mô tả</th>
+                                                    <th>Nhân Viên</th> 
+                                                   
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             <?php
-                                                $sql = "SELECT * FROM nhanvien";
+                                                $sql = "select * from phongban";
                                                 $rs= mysqli_query($connect,$sql);
                                                 while($result=mysqli_fetch_array($rs))
                                                 {
                                                     echo '<tr>
-                                                    <td>'.$result["IDNV"].'</td>
-                                                    <td>'.$result["Hoten"].'</td>
-                                                    <td>'.$result["Diachi"].'</td>
                                                     <td>'.$result["IDPB"].'</td>
-                                                    
-                                                    <td><a href="suanhanvien.php?IDNV='.$result["IDNV"].'">Sửa</a> |
-                                                        <a href="danhsach_view.php?IDNV='.$result["IDNV"].'">Xóa</a>
-                                                    </td>
-                                                     
+                                                    <td>'.$result["TenPB"].'</td>
+                                                    <td>'.$result["Mota"].'</td>
+                                                    <td><a href="listnhanvien.php?IDPB='.$result["IDPB"].'">xxx</a></td>
+                                                   
                                                     </tr>';
                                                 }
-                                               
+                                                // echo '</table>';
                                                 ?>
                                             </tbody>
                                         </table>
@@ -138,6 +124,25 @@
                 )
             });
         </script>
+
+        <script>
+            $(document).ready(function() {
+                $('#example').Tabledit({
+                    url:'action.php',
+                    columns:{
+                        identifier:[0,"IDPB"],
+                        editable:[[1, 'TenPB'],[2,'Mota']]
+                    },
+                    onSuccess:function(data,text,jq){
+                        if(data.action='delete'){
+                            $('#'+data.IDPB).remove();
+                        }
+                    }
+                })
+            }
+        
+        </script>
+
     </body>
 </html>
             <script src="plugins/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script>

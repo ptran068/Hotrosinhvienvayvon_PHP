@@ -39,40 +39,53 @@
                                     
                                     <div class="col-xs-12">
                                         <!-- ********************************************** -->
-                                        <table id="example" class="display table table-hover table-condensed">
+                                   <?php
+                                        $valuee= $_GET['IDPB'];
+                                        $sql="SELECT * FROM nhanvien WHERE IDPB='$valuee'" ;
+                                        $result = mysqli_query($connect, $sql);
+                                        if ($result) {?>
+                                            <table id="example" class="display table table-hover table-condensed">
                                             <thead>
-                                                <tr>
-                                                    <th>IDNV</th>
-                                                    <th>HoTen</th>
-                                                    <th>Địa chỉ</th>
-                                                    <th>IDPB</th>
-                                                    
-                                                    <th>Actions</th>
-                                                    
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            <?php
-                                                $sql = "SELECT * FROM nhanvien";
-                                                $rs= mysqli_query($connect,$sql);
-                                                while($result=mysqli_fetch_array($rs))
-                                                {
-                                                    echo '<tr>
-                                                    <td>'.$result["IDNV"].'</td>
-                                                    <td>'.$result["Hoten"].'</td>
-                                                    <td>'.$result["Diachi"].'</td>
-                                                    <td>'.$result["IDPB"].'</td>
-                                                    
-                                                    <td><a href="suanhanvien.php?IDNV='.$result["IDNV"].'">Sửa</a> |
-                                                        <a href="danhsach_view.php?IDNV='.$result["IDNV"].'">Xóa</a>
-                                                    </td>
-                                                     
-                                                    </tr>';
-                                                }
-                                               
+                                                    <tr>
+                                                        <th><?php echo("IDNV")?></th>
+                                                        <th><?php echo("Hoten")?></th>
+                                                        <th><?php echo("Diachi")?></th>
+                                                        <th><?php echo("IDPB")?></th>
+            
+                                                        <th>Actions</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <?php
+                                                     $valuee= $_GET['IDPB'];
+                                                    $sql="SELECT * FROM nhanvien WHERE IDPB='$valuee'" ;
+                                                    $rs= mysqli_query($connect,$sql);
+                                                    while($result=mysqli_fetch_array($rs))
+                                                    {
+                                                        echo '<tr>
+                                                        <td>'.$result["IDNV"].'</td>
+                                                        <td>'.$result["Hoten"].'</td>
+                                                        <td>'.$result["Diachi"].'</td>
+                                                        <td>'.$result["IDPB"].'</td>
+                                                        
+                                                        <td><a href="suanhanvien.php?IDNV='.$result["IDNV"].'">Sửa</a> |
+                                                            <a href="danhsach_view.php?IDNV='.$result["IDNV"].'">Xóa</a>
+                                                           
+                                                        </td>
+                                                        
+                                                        </tr>';
+                                                    }
+                                              
                                                 ?>
-                                            </tbody>
-                                        </table>
+                                            </tbody>    
+                                         </table>
+                                    <?php
+                                        
+                                        }
+                                    
+
+                    ?>
                                         <!-- ********************************************** -->
                                     </div>
                                 </div>

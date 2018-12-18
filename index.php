@@ -17,20 +17,23 @@
 	<!-- 'start thực hiện kiểm tra dữ liệu người dùng đăng ký' -->
 	<?php
 		if(isset($_POST["dangky"])){
+						
 			$user_name = $_POST["user_name"];
 			$pass1 = $_POST["pass1"];
 			$pass2 = $_POST["pass2"];
-			$name = $_POST["full_name"];
+			
+			
+			
 			//kiểm tra xem 2 mật khẩu có giống nhau hay không:
 			if($pass1!=$pass2){
 				header("location:index.php?page=dangky");
 				setcookie("error", "Đăng ký không thành công!", time()+1, "/","", 0);
 			}
 			else{
-				$pass = md5($pass1);
+				$pass = $pass1;
 				mysqli_query($connect,"
-					insert into user (user_name,password,full_name)
-					values ('$user_name','$pass','$name')
+					insert into admin (username,password)
+					values ('$user_name','$pass');
 				");
 				header("location:index.php?page=dangky");
 				setcookie("success", "Đăng ký thành công!", time()+1, "/","", 0);
@@ -42,13 +45,14 @@
 	<?php
 		if(isset($_POST["dangnhap"])){
 			$tk = $_POST["user_name_lg"];
-			$mk = md5($_POST["passlg"]);
-			$sql = "select * from user where user_name = '$tk' and password = '$mk' " ;
+			$mk = $_POST["passlg"];
+			$sql = "select * from admin where username = '$tk' and password = '$mk' " ;
 			$rows = mysqli_query($connect,$sql);
-
 			$count = mysqli_num_rows($rows);
-			if($count==1){
+			$data = mysqli_fetch_array($rows);
+			if($count==1&& isset($data)){
 				$_SESSION["loged"] = true;
+				
 				header("location: danhsach_view.php");
 				setcookie("success", "Đăng nhập thành công!", time()+1, "/","", 0);
 			}

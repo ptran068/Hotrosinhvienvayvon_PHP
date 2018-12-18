@@ -31,12 +31,8 @@
 					<label for="pwd">Nhập lại mật khẩu:</label>
 					<input required type="password" class="form-control" name="pass2" placeholder="Nhập lại mật khẩu...">
 				</div>
-	
-				<div class="form-group">
-					<label for="email">Tên đầy đủ của bạn:</label>
-					<input type="text" class="form-control" name="full_name" placeholder="Nhập tên đầy đủ của bạn...">
-				</div>
-	
+				
+			
 				<button type="submit" class="btn btn-success" name="dangky">Đăng ký</button>
 			</div>
 		</div>
